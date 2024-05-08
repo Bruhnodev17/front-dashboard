@@ -1,11 +1,14 @@
 import GlobalStyles from "./styles/global"
 import { Home } from "./screens/home"
+import { AppProvider } from "./hooks"
 
-export function App(){
-  return(
+export function App() {
+  return (
     <>
-    <GlobalStyles/>
-    < Home/>
+      <AppProvider>
+        <GlobalStyles />
+        < Home />
+      </AppProvider>
     </>
   )
 }
