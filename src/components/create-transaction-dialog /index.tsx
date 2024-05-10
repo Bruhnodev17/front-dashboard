@@ -14,7 +14,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { createTransactionSchema } from "../../validators/schemas";
 
 export function CreateTransactionDialog() {
-    const { categories, fetchCategories } = useFetchAPI()
+    const { categories, fetchCategories, createTransaction } = useFetchAPI()
     const [open, setOpen] = useState(false)
 
     const { register, reset, formState: { errors }, handleSubmit } = useForm<CreateTransactionData>({
@@ -37,9 +37,10 @@ export function CreateTransactionDialog() {
         setOpen(false);
     }, [reset])
 
-    const onSubmit = useCallback(() => {
+    const onSubmit = useCallback(async(data: CreateTransactionData) => {
+        await createTransaction(data)
         handleClose();
-    }, [handleClose])
+    }, [handleClose, createTransaction])
 
     return (
 
