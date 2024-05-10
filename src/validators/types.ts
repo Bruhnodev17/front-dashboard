@@ -1,5 +1,7 @@
 import {z} from "zod"
 
-import {createcategorySchema} from "./schemas"
+import {createTransactionSchema, createcategorySchema} from "./schemas"
 
 export type CreateCategoryData = z.infer<typeof createcategorySchema>
+
+export type CreateTransactionData = z.infer<typeof createTransactionSchema>
