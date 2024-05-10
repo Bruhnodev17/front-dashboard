@@ -8,6 +8,7 @@ export class APIService {
 
     static async createCategory(createCategoryData: CreateCategory): Promise<Category> {
         const { data } = await APIService.client.post<Category>("/categories", createCategoryData)
+        console.log(data)
         return data
     }
 
