@@ -1,10 +1,11 @@
-import { ReactNode } from "react";
-import { FetchAPIProvider } from "./useFetchAPI";
+import { ReactNode } from 'react';
 
-type AppProviderProps ={
-    children: ReactNode;
-}
+import { FetchAPIProvider } from './useFetchAPI';
 
-export function AppProvider({children}: AppProviderProps){
-    return <FetchAPIProvider>{children}</FetchAPIProvider>
+type AppProviderProps = {
+  children: ReactNode;
+};
+
+export function AppProvider({ children }: AppProviderProps) {
+  return <FetchAPIProvider>{children}</FetchAPIProvider>;
 }

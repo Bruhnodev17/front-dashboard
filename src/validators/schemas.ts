@@ -1,9 +1,20 @@
 import z from "zod"
 
+export const transactionsFilterSchema = z.object({
+    title: z.string().optional(),
+    categoryId: z.string().optional(),
+    beginDate: z.string().regex(/^(0[1-9]|[12][0-9]|3[01]\/0[0-9]|1[0-2]\/\d{4}$)/, {
+        message: 'Data inválida!',
+    }),
+    endDate: z.string().regex(/^(0[1-9]|[12][0-9]|3[01]\/0[0-9]|1[0-2]\/\d{4}$)/, {
+        message: 'Data inválida!',
+    }),
+})
+
 export const createcategorySchema = z.object({
     title: z
         .string()
-        .min(1, { message: "eve conter pelo menos 1 caractere." })
+        .min(1, { message: "Deve conter pelo menos 1 caractere." })
         .max(255),
     color: z
         .string()
